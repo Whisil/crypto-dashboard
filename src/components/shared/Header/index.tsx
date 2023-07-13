@@ -1,17 +1,30 @@
+import clsx from 'clsx';
 import Button from '../Button';
 import Logo from '../assets/Logo';
 import WalletBox from './WalletBox';
 
-const Header = () => {
+type HeaderProps = {
+  heading: string;
+};
+
+const Header = ({ heading }: HeaderProps) => {
   return (
-    <div className="p-4 flex items-center justify-between border-b border-basic-850">
-      <div className="flex-shrink w-1/2">
+    <div
+      className={clsx(
+        'p-4 flex items-center justify-between border-b border-basic-850',
+        'md:py-4 md:px-6',
+      )}
+    >
+      <div className="flex-shrink w-1/2 md:hidden">
         <Button iconName="menu" />
       </div>
-      <div className="flex-shrink-0 grow">
+      <div className="hidden md:block">
+        <h1 className="font-extrabold text-base text-basic-100">{heading}</h1>
+      </div>
+      <div className="flex-shrink-0 grow md:hidden">
         <Logo />
       </div>
-      <div className="flex flex-shrink w-1/2 justify-end">
+      <div className="flex flex-shrink w-1/2 justify-end md:w-auto md:block">
         <WalletBox />
       </div>
     </div>
