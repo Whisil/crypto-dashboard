@@ -1,7 +1,9 @@
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
 import Header from '@/components/shared/Header';
+import Sidebar from '@/components/shared/Sidebar';
+import './globals.css';
+import clsx from 'clsx';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -17,9 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.variable}>
-        <Header heading="Wallet" />
-        {children}
+      <body className={clsx('flex min-h-screen', inter.variable)}>
+        <Sidebar />
+        <div className="w-full">
+          <Header heading="Wallet" />
+          {children}
+        </div>
       </body>
     </html>
   );

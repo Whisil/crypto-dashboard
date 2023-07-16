@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Button from '../Button';
-import Logo from '../assets/Logo';
+import { Logo, Menu } from '../assets/Icons';
 import WalletBox from './WalletBox';
 
 type HeaderProps = {
@@ -16,7 +16,7 @@ const Header = ({ heading }: HeaderProps) => {
       )}
     >
       <div className="flex-shrink w-1/2 md:hidden">
-        <Button iconName="menu" />
+        <Button icon={<Menu />} />
       </div>
       <div className="hidden md:block">
         <h1 className="font-extrabold text-base text-basic-100">{heading}</h1>

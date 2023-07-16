@@ -35,6 +35,15 @@ module.exports = {
       fontFamily: {
         inter: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
       },
+      minWidth: (theme) => ({
+        ...theme('spacing'),
+      }),
+      maxWidth: (theme) => ({
+        ...theme('spacing'),
+      }),
+      minHeight: (theme) => ({
+        ...theme('spacing'),
+      }),
     },
   },
   plugins: [],

@@ -3,5 +3,5 @@
 @import 'tailwindcss/utilities';
 
 body {
-  @apply bg-basic-900 text-white leading-relaxed font-inter;
+  @apply bg-basic-900 text-white text-xs  leading-relaxed font-inter;
 }

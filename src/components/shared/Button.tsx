@@ -1,21 +1,25 @@
 import clsx from 'clsx';
-import Image from 'next/image';
 import { ReactNode } from 'react';
 
 type ButtonProps = {
-  iconName: string;
+  icon?: ReactNode;
+  className?: string;
+  onClick?: () => void;
   children?: ReactNode;
 };
 
-const Button = ({ iconName, children }: ButtonProps) => {
+const Button = ({ icon, className, onClick, children }: ButtonProps) => {
   return (
     <button
       className={clsx(
         'p-1 relative hover:bg-basic-800/50 transition-colors',
-        'rounded-md',
+        'rounded-md w-fit h-fit flex items-center',
+        icon && 'gap-2',
+        className,
       )}
+      onClick={onClick}
     >
-      <Image alt="" src={`/icons/${iconName}.svg`} height={24} width={24} />
+      {icon}
       {children}
     </button>
   );
