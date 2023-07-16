@@ -1,25 +1,26 @@
-'use client';
-
 import clsx from 'clsx';
-import { useState } from 'react';
-import Button from '../Button';
 import { CollapseIcon, Logo, NFTs, Summary, Wallet } from '../assets/Icons';
+import Button from '../Button';
 import MenuItem from './MenuItem';
 
-const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+type SidebarProps = {
+  toggleOpen: () => void;
+  isOpen: boolean;
+};
 
+const Sidebar = ({ toggleOpen, isOpen }: SidebarProps) => {
   return (
     <div
       className={clsx(
-        'hidden md:block py-4 border-r border-basic-850',
-        'flex flex-col items-center',
-        isOpen && 'max-w-56 w-full',
+        'block md:py-4 border-r border-basic-850',
+        'flex flex-col items-center fixed md:relative',
+        'min-h-screen inset-0 max-w-screen py-20 md:max-w-auto',
+        isOpen && 'md:w-56 w-full',
       )}
     >
       <div
         className={clsx(
-          'flex items-center justify-center mb-6 h-11',
+          'items-center justify-center mb-6 h-11 hidden md:flex w-full',
           isOpen && 'px-4 justify-between',
         )}
       >
@@ -42,10 +43,10 @@ const Sidebar = () => {
             />
           }
           className="text-basic-600"
-          onClick={() => setIsOpen((prevState) => !prevState)}
+          onClick={toggleOpen}
         />
       </div>
-      <ul className="flex flex-col px-2">
+      <ul className="flex flex-col px-2 w-full">
         <MenuItem
           icon={<Wallet className="text-basic-700" />}
           text="Wallet"
